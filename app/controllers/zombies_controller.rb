@@ -13,11 +13,15 @@ class ZombiesController < ApplicationController
   # GET /zombies/1
   # GET /zombies/1.json
   def show
-    @zombie = Zombie.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @zombie }
+    if !Zombie.exists?(params[:id])
+      redirect_to new_zombie_path
+      flash[:error] = "User not found"
+    else
+      @zombie = Zombie.find(params[:id])
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @zombie }
+      end
     end
   end
 
