@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(:version => 20131130131744) do
     t.integer  "age"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.string   "email"
     t.boolean  "rotting"
+    t.string   "email"
   end
 
 end
