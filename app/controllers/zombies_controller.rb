@@ -13,6 +13,7 @@ class ZombiesController < ApplicationController
   # GET /zombies/1
   # GET /zombies/1.json
   def show
+    @roles_choice = Role.all
     if !Zombie.exists?(params[:id])
       redirect_to new_zombie_path
       flash[:error] = "User not found"
@@ -49,7 +50,8 @@ class ZombiesController < ApplicationController
 
     respond_to do |format|
       if @zombie.save
-        format.html { redirect_to @zombie, notice: 'Zombie was successfully created.' }
+        flash[:success] = 'Zombie was successfully created.'
+        format.html { redirect_to @zombie }
         format.json { render json: @zombie, status: :created, location: @zombie }
       else
         format.html { render action: "new" }
@@ -65,7 +67,8 @@ class ZombiesController < ApplicationController
 
     respond_to do |format|
       if @zombie.update_attributes(params[:zombie])
-        format.html { redirect_to @zombie, notice: 'Zombie was successfully updated.' }
+        flash[:success] ='Zombie was successfully updated.'
+        format.html { redirect_to @zombie }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

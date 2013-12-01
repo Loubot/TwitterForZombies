@@ -1,0 +1,7 @@
+<div>
+	<% @roles_choice.each do |choice| %>
+		<%= check_box_tag("#{choice.title}","#{choice.title}") %>
+		<%= "#{choice.title}" %>
+		<br>
+	<% end %>
+</div>

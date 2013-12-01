@@ -16,8 +16,10 @@
 </p>
 
 <p>
-	<b>Roles:</b>
-	<%= @roles %>
+	<% if @roles %>
+		<b>Roles:</b>
+		<%= @roles %>
+	<% end %>
 </p>
 
 <% if @zombie.brain %>
@@ -29,6 +31,8 @@
 		<p>Brain tastes like <%= "#{@zombie.brain.flavour.downcase}" %></p>
 	<% end %>
 <% end %>
+
+<%= render 'add_role' %>
 
 
 <%= link_to 'Edit', edit_zombie_path(@zombie) %> |
