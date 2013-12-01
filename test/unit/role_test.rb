@@ -8,10 +8,10 @@
 #  updated_at :datetime         not null
 #
 
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+require 'test_helper'
 
-one:
-  title: MyString
-
-two:
-  title: MyString
+class RoleTest < ActiveSupport::TestCase
+  # test "the truth" do
+  #   assert true
+  # end
+end

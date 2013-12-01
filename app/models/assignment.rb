@@ -9,12 +9,8 @@
 #  updated_at :datetime         not null
 #
 
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-one:
-  zombie_id: 1
-  role_id: 1
-
-two:
-  zombie_id: 1
-  role_id: 1
+class Assignment < ActiveRecord::Base
+  attr_accessible :role_id, :zombie_id
+  belongs_to :zombie
+  belongs_to :role
+end

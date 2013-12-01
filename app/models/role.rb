@@ -8,10 +8,8 @@
 #  updated_at :datetime         not null
 #
 
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-one:
-  title: MyString
-
-two:
-  title: MyString
+class Role < ActiveRecord::Base
+  attr_accessible :title
+  has_many :assignments
+  has_many :zombies, through: :assignments
+end

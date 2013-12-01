@@ -6,5 +6,7 @@ class CreateAssignments < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :assignments, :zombie_id
+    add_index :assignments, :role_id
   end
 end

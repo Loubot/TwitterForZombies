@@ -73,6 +73,11 @@ class ZombiesController < ApplicationController
     end
   end
 
+  def create_role
+    @zombie = Zombie.fine(params[:id])
+    roles.create(params[:title])
+  end
+
   # DELETE /zombies/1
   # DELETE /zombies/1.json
   def destroy
