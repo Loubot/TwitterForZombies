@@ -18,6 +18,7 @@ class ZombiesController < ApplicationController
       flash[:error] = "User not found"
     else
       @zombie = Zombie.find(params[:id])
+      @roles = @zombie.roles.map { |role| "#{role.title}"}.join(',')    
       respond_to do |format|
         format.html # show.html.erb
         format.json { render json: @zombie }
@@ -73,10 +74,7 @@ class ZombiesController < ApplicationController
     end
   end
 
-  def create_role
-    @zombie = Zombie.fine(params[:id])
-    roles.create(params[:title])
-  end
+
 
   # DELETE /zombies/1
   # DELETE /zombies/1.json

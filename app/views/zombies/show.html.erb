@@ -15,6 +15,21 @@
   <%= @zombie.age %>
 </p>
 
+<p>
+	<b>Roles:</b>
+	<%= @roles %>
+</p>
+
+<% if @zombie.brain %>
+	<b>Brain:</b>
+	<% if @zombie.brain.status %>
+		<p>Brain is <%= "#{@zombie.brain.status.downcase}" %></p>
+	<% end %>
+	<% if @zombie.brain.flavour %>
+		<p>Brain tastes like <%= "#{@zombie.brain.flavour.downcase}" %></p>
+	<% end %>
+<% end %>
+
 
 <%= link_to 'Edit', edit_zombie_path(@zombie) %> |
 <%= link_to 'Back', zombies_path %>
