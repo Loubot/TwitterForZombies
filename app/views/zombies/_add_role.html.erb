@@ -1,7 +1,8 @@
 <div>
 	<% @roles_choice.each do |choice| %>
-		<%= check_box_tag("#{choice.title}","#{choice.title}") %>
+		<%= check_box_tag('select_role',"#{choice.title}",false, class: "#{choice.title}") %>
 		<%= "#{choice.title}" %>
 		<br>
 	<% end %>
+	<button id = "tester">Test</button>
 </div>
