@@ -1,8 +1,8 @@
-<div>
+<form>	
 	<% @roles_choice.each do |choice| %>
-		<%= check_box_tag('select_role',"#{choice.title}",false, class: "#{choice.title}") %>
-		<%= "#{choice.title}" %>
-		<br>
-	<% end %>
-	<button id = "tester">Test</button>
-</div>
+		<% if @zombie.roles.where(title: "#{choice.title}") == [] %>
+			<%= check_box_tag('select_role',"#{choice.title}",false, class: "#{choice.title}") + "#{choice.title}" %><br>
+		<% end %>	
+	<% end %>	
+</form>
+<button id = "tester">Test</button>
