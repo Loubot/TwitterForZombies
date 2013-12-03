@@ -6,7 +6,7 @@
     _results = [];
     while (i < document.forms[0].select_role.length) {
       if (select_role[i].checked) {
-        alert(select_role[i].value);
+        alert(this.zombie.roles);
       }
       _results.push(i++);
     }

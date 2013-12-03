@@ -4,5 +4,6 @@
 			<%= check_box_tag('select_role',"#{choice.title}",false, class: "#{choice.title}") + "#{choice.title}" %><br>
 		<% end %>	
 	<% end %>	
+
 </form>
-<button id = "tester">Test</button>
+<%= button_to "Test", @zombie, remote: true %>
