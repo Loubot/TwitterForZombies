@@ -19,7 +19,7 @@ class ZombiesController < ApplicationController
     else
       @zombie = Zombie.find(params[:id])
       @roles = @zombie.roles.map { |role| "#{role.title}"}
-      @roles_choice = Roles.where('title not in (?)',@zombie.roles.map { |role| "#{role.title}"})
+      @roles_choice = Role.where('title not in (?)',@roles)
       respond_to do |format|
         format.html # show.html.erb
         format.json { render json: @zombie }
