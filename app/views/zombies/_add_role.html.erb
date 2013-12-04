@@ -1,9 +1,10 @@
 <form>	
 	<% @roles_choice.each do |choice| %>
-		<% if @zombie.roles.where(title: "#{choice.title}") == [] %>
-			<%= check_box_tag('select_role',"#{choice.title}",false, class: "#{choice.title}") + "#{choice.title}" %><br>
-		<% end %>	
+		
+		<%= check_box_tag('select_role',"#{choice.title}",false, class: "#{choice.title}") + "#{choice.title}" %><br>
+		
 	<% end %>	
+	<%= button_to "Test", @role_update, remote: true %>
 
 </form>
-<%= button_to "Test", @zombie, remote: true %>
+

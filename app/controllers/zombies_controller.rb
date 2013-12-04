@@ -13,13 +13,13 @@ class ZombiesController < ApplicationController
   # GET /zombies/1
   # GET /zombies/1.json
   def show
-    @roles_choice = Role.all
     if !Zombie.exists?(params[:id])
       redirect_to new_zombie_path
       flash[:error] = "User not found"
     else
       @zombie = Zombie.find(params[:id])
-      @roles = @zombie.roles.map { |role| "#{role.title}"}.join(',')    
+      @roles = @zombie.roles.map { |role| "#{role.title}"}
+      @roles_choice = Roles.where('title not in (?)',@zombie.roles.map { |role| "#{role.title}"})
       respond_to do |format|
         format.html # show.html.erb
         format.json { render json: @zombie }
@@ -77,6 +77,9 @@ class ZombiesController < ApplicationController
     end
   end
 
+def add_role
+  @role_update = @zombie.roles << Role.find_by_title()
+end
 
 
   # DELETE /zombies/1
