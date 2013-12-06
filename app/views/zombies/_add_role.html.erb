@@ -1,12 +1,15 @@
 <%= form_tag addrole_zombie_path, :method => 'put' do %>
+<h3>Possible Roles!</h3>
+<p>Upgrade your zombie by training in one of the following roles</p>
 	<ul>
 		<% @roles_choice.each do |choice| %>
 		<li>
-			<%= check_box_tag('select_role',"#{choice.title}",false, class: "#{choice.title}") + "#{choice.title}" %><br>
+			<%= check_box_tag('select_roles[]',"#{choice.title}",false, class: "#{choice.title}") + "#{choice.title}" %><br>
 			
 		<% end %>	
 		</li>
-		<%= submit_tag "Test" %>
+		<br>
+		<%= submit_tag "Add role" %>
 	</ul>
 
 <% end %>

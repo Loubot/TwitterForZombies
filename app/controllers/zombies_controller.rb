@@ -33,10 +33,9 @@ class ZombiesController < ApplicationController
 
   def addrole
     @zombie = Zombie.find(params[:id])    
-    @zombie.roles << Role.find_by_title(params[:select_role])
-    flash[:success] = "Role successfully added to zombie!"
+    @zombie.roles << Role.where("title in (?)", params[:select_roles])
+    flash[:success] = "Zombie character updated"
     redirect_to @zombie
-    #@role_update = @zombie.roles << Role.find_by_title()
   end
 
   # GET /zombies/new
