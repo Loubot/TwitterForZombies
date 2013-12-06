@@ -19,12 +19,24 @@ class ZombiesController < ApplicationController
     else
       @zombie = Zombie.find(params[:id])
       @roles = @zombie.roles.map { |role| "#{role.title}"}
-      @roles_choice = Role.where('title not in (?)',@roles)
+      if @roles == []
+        @roles_choice = Role.all
+      else
+        @roles_choice = Role.where('title not in (?)',@roles)
+      end
       respond_to do |format|
         format.html # show.html.erb
         format.json { render json: @zombie }
       end
     end
+  end
+
+  def addrole
+    @zombie = Zombie.find(params[:id])    
+    @zombie.roles << Role.find_by_title(params[:select_role])
+    flash[:success] = "Role successfully added to zombie!"
+    redirect_to @zombie
+    #@role_update = @zombie.roles << Role.find_by_title()
   end
 
   # GET /zombies/new
@@ -76,11 +88,6 @@ class ZombiesController < ApplicationController
       end
     end
   end
-
-def add_role
-  @role_update = @zombie.roles << Role.find_by_title()
-end
-
 
   # DELETE /zombies/1
   # DELETE /zombies/1.json

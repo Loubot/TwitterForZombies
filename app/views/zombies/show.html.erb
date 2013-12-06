@@ -16,7 +16,7 @@
 </p>
 
 <p>
-	<% if @roles %>
+	<% if @roles != [] %>
 		<b>Current Roles:</b>
 		<%= @roles.join(',') %>
 	<% end %>

@@ -1,5 +1,10 @@
 TwitterForZombies::Application.routes.draw do
-  resources :zombies
+  resources :zombies do
+    member do
+      put :addrole
+    end
+  end
+
 
   root :to => 'zombies#index'
 

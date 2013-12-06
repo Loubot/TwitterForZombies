@@ -1,10 +1,13 @@
-<form>	
-	<% @roles_choice.each do |choice| %>
-		
-		<%= check_box_tag('select_role',"#{choice.title}",false, class: "#{choice.title}") + "#{choice.title}" %><br>
-		
-	<% end %>	
-	<%= button_to "Test", @role_update, remote: true %>
+<%= form_tag addrole_zombie_path, :method => 'put' do %>
+	<ul>
+		<% @roles_choice.each do |choice| %>
+		<li>
+			<%= check_box_tag('select_role',"#{choice.title}",false, class: "#{choice.title}") + "#{choice.title}" %><br>
+			
+		<% end %>	
+		</li>
+		<%= submit_tag "Test" %>
+	</ul>
 
-</form>
+<% end %>
 
