@@ -1,9 +1,9 @@
 TwitterForZombies::Application.routes.draw do
-  resources :zombies do
-    member do
-      put :addrole
-    end
-  end
+  
+
+  get "roles/addRole"
+
+  resources :zombies
 
 
   root :to => 'zombies#index'
