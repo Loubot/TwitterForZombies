@@ -32,7 +32,9 @@
 	<% end %>
 <% end %>
 
-<%= render 'add_role' %>
+<%= link_to 'Edit role', zombie_roles_addRole_path(@zombie) %>
+
+
 
 
 <%= link_to 'Edit', edit_zombie_path(@zombie) %> |

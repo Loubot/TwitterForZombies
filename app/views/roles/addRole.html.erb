@@ -1,0 +1,24 @@
+<h3> Current roles</h3>
+
+<%= @current.map { |role| "#{role.title}"}.join(',') %>
+
+<br>
+
+<h3>Remaining</h3>
+<% @remaining.each do |role| %>
+	<%= "#{role.title}" %>
+<% end %>
+
+<hr style="width:90%">
+
+<%= form_tag zombie_roles_addRole_path, :method => 'put' do %>
+	<ul>
+			<% for role in @remaining %>
+			<li>
+				<%= check_box_tag("select_role") %>
+				<%= role.title %>
+			</li>	
+			<% end %>			
+	</ul>
+	<%= submit_tag "Add Role" %>
+<% end %>
