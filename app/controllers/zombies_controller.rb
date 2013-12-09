@@ -31,12 +31,7 @@ class ZombiesController < ApplicationController
     end
   end
 
-  def addrole
-    @zombie = Zombie.find(params[:id])    
-    @zombie.roles << Role.where("title in (?)", params[:select_roles])
-    flash[:success] = "Zombie character updated"
-    redirect_to @zombie
-  end
+  
 
   # GET /zombies/new
   # GET /zombies/new.json
