@@ -2,9 +2,9 @@ TwitterForZombies::Application.routes.draw do
   
 
   resources :zombies 
-  resources :roles, :collection => { :addrole => :put }
 
-  match 'editrole', to: 'roles#addrole' 
+  match 'editrole',   to: 'roles#addrole' 
+ 
 
 
   root :to => 'zombies#index'
