@@ -1,4 +1,4 @@
-<%= form_tag deleterole_path(@zombie) do %>
+<%= form_tag deleterole_path(@zombie), :method => :delete do %>
 	<ul>
 	<% for role in @current %>
 		<li>

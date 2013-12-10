@@ -3,8 +3,11 @@ TwitterForZombies::Application.routes.draw do
 
   resources :zombies 
 
-  match 'editrole',   to: 'roles#addrole' 
-  match 'deleterole', to: 'roles#deleterole'
+
+  match 'editrole',   to: 'roles#addrole', via: :get
+  match 'editrole', to: 'roles#transact', via: :put
+  match 'deleterole', to: 'roles#deleterole', via: :get
+  match 'deleterole', to: 'roles#delete', via: :delete
 
 
   root :to => 'zombies#index'
