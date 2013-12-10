@@ -1,0 +1,23 @@
+<% if @current != [] %>
+	<h3> Current roles</h3>
+
+	<%= @current.map { |role| "#{role.title}"}.join(',') %> 
+	<br>
+	<hr style="width:90%">
+<% end %>
+<h3>Remaining</h3>
+
+
+
+
+<%= form_tag editrole_path(@zombie), :method => :put do %>
+	<ul>
+			<% for role in @remaining %>
+			<li>
+				<%= check_box_tag("select_role[]",role.title) %>
+				<%= role.title %>
+			</li>	
+			<% end %>			
+	</ul>
+	<%= submit_tag "Add Role" %>
+<% end %>
