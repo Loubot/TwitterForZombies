@@ -1,0 +1,11 @@
+<%= form_tag deleterole_path(@zombie) do %>
+	<ul>
+	<% for role in @current %>
+		<li>
+		<%= check_box_tag('select_role[]', role.title) %>
+		<%= role.title %>		
+		</li>		
+	<% end %>
+	</ul>
+	<%= submit_tag "Remove roles" %>
+<% end %>
